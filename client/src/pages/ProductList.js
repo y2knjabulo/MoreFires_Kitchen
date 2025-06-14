@@ -1,8 +1,9 @@
 
 // client/src/pages/ProductList.js
 import React from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, Button, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext'; // ✅ Import cart context
 
 const products = [
   {
@@ -29,6 +30,8 @@ const products = [
 ];
 
 const ProductList = () => {
+  const { addToCart } = useCart(); // ✅ Access addToCart from context
+
   return (
     <Grid container spacing={3} sx={{ p: 3 }}>
       {products.map((product) => (
@@ -48,14 +51,23 @@ const ProductList = () => {
               <Typography variant="subtitle1" sx={{ mt: 1 }}>
                 R{product.price.toFixed(2)}
               </Typography>
-              <Button
-                component={Link}
-                to={`/product/${product.id}`}
-                variant="contained"
-                sx={{ mt: 2 }}
-              >
-                View Details
-              </Button>
+
+              {/* ✅ Buttons: View Details and Add to Cart */}
+              <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+                <Button
+                  component={Link}
+                  to={`/product/${product.id}`}
+                  variant="outlined"
+                >
+                  View Details
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={() => addToCart(product)} // ✅ Add to cart logic
+                >
+                  Add to Cart
+                </Button>
+              </Stack>
             </CardContent>
           </Card>
         </Grid>
