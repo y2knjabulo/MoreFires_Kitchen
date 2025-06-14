@@ -1,18 +1,22 @@
+// client/src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-      <Link className="navbar-brand" to="/">FastFood App</Link>
-      <div className="navbar-nav">
-        <Link className="nav-link" to="/products">Products</Link>
-        <Link className="nav-link" to="/cart">Cart</Link>
-        <Link className="nav-link" to="/signin">Sign In</Link>
-        <Link className="nav-link" to="/register">Register</Link>
-        <Link className="nav-link" to="/admin">Admin</Link>
-      </div>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Button color="inherit" component={Link} to="/">Home</Button>
+        <Button color="inherit" component={Link} to="/products">Menu</Button>
+        <Button color="inherit" component={Link} to="/cart">Cart</Button>
+        <Button color="inherit" component={Link} to="/signin">Sign In</Button>
+        <Button color="inherit" component={Link} to="/register">Register</Button>
+        <Button color="inherit" component={Link} to="/admin">Admin</Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
