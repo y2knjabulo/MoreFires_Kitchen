@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/MoreFires_Kitchen/static/css/main.9d0934b1.css",
-    "main.js": "/MoreFires_Kitchen/static/js/main.53ea1d0d.js",
+    "main.js": "/MoreFires_Kitchen/static/js/main.f5bd1c9a.js",
     "static/js/453.419a5d54.chunk.js": "/MoreFires_Kitchen/static/js/453.419a5d54.chunk.js",
     "index.html": "/MoreFires_Kitchen/index.html",
     "main.9d0934b1.css.map": "/MoreFires_Kitchen/static/css/main.9d0934b1.css.map",
-    "main.53ea1d0d.js.map": "/MoreFires_Kitchen/static/js/main.53ea1d0d.js.map",
+    "main.f5bd1c9a.js.map": "/MoreFires_Kitchen/static/js/main.f5bd1c9a.js.map",
     "453.419a5d54.chunk.js.map": "/MoreFires_Kitchen/static/js/453.419a5d54.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d0934b1.css",
-    "static/js/main.53ea1d0d.js"
+    "static/js/main.f5bd1c9a.js"
   ]
 }
