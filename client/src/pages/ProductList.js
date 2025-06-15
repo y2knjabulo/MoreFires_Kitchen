@@ -1,9 +1,7 @@
-
 // client/src/pages/ProductList.js
 import React from 'react';
-import { Grid, Card, CardMedia, CardContent, Typography, Button, Stack } from '@mui/material';
+import { Grid, Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext'; // ✅ Import cart context
 
 const products = [
   {
@@ -30,44 +28,35 @@ const products = [
 ];
 
 const ProductList = () => {
-  const { addToCart } = useCart(); // ✅ Access addToCart from context
-
   return (
     <Grid container spacing={3} sx={{ p: 3 }}>
       {products.map((product) => (
         <Grid item xs={12} sm={6} md={4} key={product.id}>
-          <Card>
+          <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
             <CardMedia
               component="img"
-              height="180"
+              height="200"
               image={product.image}
               alt={product.name}
             />
             <CardContent>
-              <Typography variant="h6">{product.name}</Typography>
+              <Typography variant="h6" color="#d32f2f">
+                {product.name}
+              </Typography>
               <Typography variant="body2" color="text.secondary">
                 {product.description}
               </Typography>
-              <Typography variant="subtitle1" sx={{ mt: 1 }}>
+              <Typography variant="subtitle1" sx={{ mt: 1, color: '#ffa000' }}>
                 R{product.price.toFixed(2)}
               </Typography>
-
-              {/* ✅ Buttons: View Details and Add to Cart */}
-              <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                <Button
-                  component={Link}
-                  to={`/product/${product.id}`}
-                  variant="outlined"
-                >
-                  View Details
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={() => addToCart(product)} // ✅ Add to cart logic
-                >
-                  Add to Cart
-                </Button>
-              </Stack>
+              <Button
+                component={Link}
+                to={`/product/${product.id}`}
+                variant="contained"
+                sx={{ mt: 2, backgroundColor: '#d32f2f', '&:hover': { backgroundColor: '#b71c1c' } }}
+              >
+                View Details
+              </Button>
             </CardContent>
           </Card>
         </Grid>
@@ -77,3 +66,5 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+
